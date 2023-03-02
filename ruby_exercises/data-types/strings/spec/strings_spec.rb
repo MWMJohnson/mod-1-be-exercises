@@ -3,25 +3,26 @@ RSpec.describe 'Strings' do
     name = "alice"
     # In place of the line below, call a method on the name variable
     # defined above to acheive the expected output.
-    actual = name._____
+    actual = name.capitalize
     expected = "Alice"
 
     expect(actual).to eq(expected)
   end
 
-  xit 'test 2' do
+
+  it 'test 2' do
     name = "aLiCe"
     # In place of the line below, call a method to achieve the expected output.
-    actual = name._____
+    actual = name.upcase
     expected = "ALICE"
 
     expect(actual).to eq(expected)
   end
 
-  xit 'test 3' do
+  it 'test 3' do
     name = "AlIcE"
     # In place of the line below, call a method to achieve the expected output.
-    actual = name._____
+    actual = name.downcase
     expected = "alice"
 
     expect(actual).to eq(expected)
