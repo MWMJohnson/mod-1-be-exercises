@@ -5,7 +5,9 @@ class Pirate
         @job = job
         @cursed = false
         @num_heinous_acts = 0
-        @booty = 0
+        @starting_booty = 0
+        @booty_received = 0 
+        
     end
 
     def commit_heinous_act
@@ -21,11 +23,11 @@ class Pirate
     end
 
     def booty?
-        @booty?
+        @starting_booty + @booty_received
     end
 
     def steal_a_ship
-        @booty += 100
+        @booty_received += 100
     end
 
 end

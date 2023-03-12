@@ -39,6 +39,7 @@ RSpec.describe Pirate do
 
   it 'has a booty' do
     # create a pirate
+
     # check that the pirate starts with 0 booty
   end
 
