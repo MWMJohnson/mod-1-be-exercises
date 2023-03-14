@@ -246,12 +246,12 @@ RSpec.describe 'Hashes' do
     }
     # Call a method on the ages hash defined above
     # to figure out if :Jimmy is a key
-    jimmy_in_hash = ages.keys.include?(:Jimmy)
+    jimmy_in_hash = ages.include?(:Jimmy)
     expect(jimmy_in_hash).to eq(true)
 
     # Now figure out if :Jackie is in the hash
 
-    jackie_in_hash = ages.keys.include?(:Jackie)
+    jackie_in_hash = ages.include?(:Jackie)
     expect(jackie_in_hash).to eq(false)
   end
 
