@@ -50,11 +50,21 @@ RSpec.describe Werewolf do
   end
 
   it 'is not hungry by default' do
-    # your code here
+   
+  werewolf = Werewolf.new("Gary")
+  expect(werewolf.hungry?).to be false
   end
 
   it 'becomes hungry after changing to a werewolf' do
-    # your code here
+    
+    werewolf = Werewolf.new('Dan', 'Dallas')
+
+    expect(werewolf.hungry?).to be false
+    expect(werewolf.human?).to be true
+
+    werewolf.change!
+    expect(werewolf.hungry?).to be true
+    expect(werewolf.human?).to be false
   end
 
   class Victim
@@ -67,18 +77,99 @@ RSpec.describe Werewolf do
 
   it 'consumes a victim' do
     # your code here
+    werewolf2 = Werewolf.new("Abe")
+
+    werewolf2.consume!
+    expect(werewolf2.eaten?).to eq 0
+    expect(werewolf2.status?).to eq :alive
+    
+
+    werewolf2.change!
+
+    werewolf2.consume!
+    expect(werewolf2.eaten?).to eq 1
+    expect(werewolf2.status?).to eq :dead
+
+    5.times do
+    werewolf2.consume!
+    end 
+    expect(werewolf2.eaten?).to eq 6
+    expect(werewolf2.status?).to eq :dead
+  
+
   end
 
   it 'cannot consume a victim if it is in human form' do
     # your code here
+    werewolf2 = Werewolf.new("Bill")
+
+    werewolf2.consume!
+    expect(werewolf2.eaten?).to eq 0
+    expect(werewolf2.status?).to eq :alive
+
+    werewolf2.change!
+
+    werewolf2.consume!
+    expect(werewolf2.eaten?).to eq 1
+    expect(werewolf2.status?).to eq :dead
+
+    werewolf2.change!
+
+    werewolf2.consume!
+    expect(werewolf2.eaten?).to eq 1
+    expect(werewolf2.status?).to eq :dead
+
+    werewolf2.change!
+
+    werewolf2.consume!
+    expect(werewolf2.eaten?).to eq 2
+    expect(werewolf2.status?).to eq :dead
+
+
   end
 
   it 'a werewolf that has consumed a human being is no longer hungry' do
     # your code here
+
+    werewolf2 = Werewolf.new("Bob")
+
+    expect(werewolf2.hungry?).to be false
+
+
+    werewolf2.change!
+
+    expect(werewolf2.hungry?).to be true
+
+    werewolf2.consume!
+    expect(werewolf2.hungry?).to be false
+    expect(werewolf2.eaten?).to eq 1
+    
+    werewolf2.change!
+    expect(werewolf2.hungry?).to be false
+
+    
   end
 
   it 'a werewolf who has consumed a victim makes the victim dead' do
-    # your code here
+    werewolf2 = Werewolf.new("Che")
+
+    expect(werewolf2.status?).to eq :alive
+
+    werewolf2.change!
+    werewolf2.consume!
+
+    expect(werewolf2.status?).to eq :dead
+    expect(werewolf2.eaten?).to eq 1
+
+    19.times do
+      werewolf2.consume!
+    end
+
+    expect(werewolf2.status?).to eq :dead
+    expect(werewolf2.eaten?).to eq 20
+
+
+
   end
 
 end
