@@ -94,6 +94,8 @@ class Centaur
             @has_drunk2 = true
         end
 
+        
+
         if @cranky_run == true || @bows_shot >= 3 || @has_drunk2 == true
             true
         else
