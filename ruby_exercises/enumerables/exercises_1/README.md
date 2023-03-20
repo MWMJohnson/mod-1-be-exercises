@@ -18,7 +18,7 @@ Now do the same thing for `map_spec.rb`
 
 Keep ping-ponging back-and-forth as you work through the files.
 
-Here's the order to work through:
+Here's the order to work through:   
 
 * `map`
 * `select`
